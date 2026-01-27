@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.isaacpatrocinio</groupId>
-	<artifactId>ordersystem</artifactId>
+	<artifactId>ordersystemapi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ordersystem</name>
+	<name>ordersystemapi</name>
 	<description>Web service com Spring e JPA</description>
 	<url/>
 	<licenses>
