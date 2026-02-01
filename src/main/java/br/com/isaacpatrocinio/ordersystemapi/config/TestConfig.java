@@ -1,6 +1,8 @@
 package br.com.isaacpatrocinio.ordersystemapi.config;
 
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.context.annotation.Profile;
 import br.com.isaacpatrocinio.ordersystemapi.entities.Category;
 import br.com.isaacpatrocinio.ordersystemapi.entities.Order;
 import br.com.isaacpatrocinio.ordersystemapi.entities.OrderItem;
+import br.com.isaacpatrocinio.ordersystemapi.entities.Payment;
 import br.com.isaacpatrocinio.ordersystemapi.entities.Product;
 import br.com.isaacpatrocinio.ordersystemapi.entities.User;
 import br.com.isaacpatrocinio.ordersystemapi.entities.enums.OrderStatus;
@@ -32,7 +35,7 @@ public class TestConfig implements CommandLineRunner {
 
 	@Autowired
 	private CategoryRepository categoryRepository;
-
+	
 	@Autowired
 	private ProductRepository productRepository;
 	
@@ -82,6 +85,10 @@ public class TestConfig implements CommandLineRunner {
 		OrderItem orderItem4 = new OrderItem(order3, p5, 2, p5.getPrice());
 		
 		orderItemRepository.saveAll(Arrays.asList(orderItem1, orderItem2, orderItem3, orderItem4));
+		
+		Payment pay1 = new Payment(null, order1, Instant.parse("2019-06-20T19:53:07Z").plus(2, ChronoUnit.HOURS));
+		order1.setPayment(pay1);
+		orderRepository.save(order1);
 	}
 
 }
