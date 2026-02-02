@@ -80,8 +80,8 @@ public class TestConfig implements CommandLineRunner {
 		orderRepository.saveAll(Arrays.asList(order1, order2, order3));
 		
 		OrderItem orderItem1 = new OrderItem(order1, p1, 2, p1.getPrice());
-		OrderItem orderItem2 = new OrderItem(order1, p3, 1, p4.getPrice());
-		OrderItem orderItem3 = new OrderItem(order2, p3, 2, p1.getPrice());
+		OrderItem orderItem2 = new OrderItem(order1, p3, 1, p3.getPrice());
+		OrderItem orderItem3 = new OrderItem(order2, p3, 2, p3.getPrice());
 		OrderItem orderItem4 = new OrderItem(order3, p5, 2, p5.getPrice());
 		
 		orderItemRepository.saveAll(Arrays.asList(orderItem1, orderItem2, orderItem3, orderItem4));

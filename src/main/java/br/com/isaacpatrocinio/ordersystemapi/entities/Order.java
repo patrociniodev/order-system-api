@@ -125,5 +125,11 @@ public class Order implements Serializable {
 			return false;
 		return true;
 	}
+	
+	public Double getTotal() {
+		return items.stream()
+				.mapToDouble(OrderItem::getSubTotal)
+				.sum();
+	}
 
 }
